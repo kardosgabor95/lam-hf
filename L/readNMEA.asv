@@ -1,6 +1,7 @@
-    function out=readNMEA(file,type)
+    clear all
+    function 
     tic
-    A = importfile(file,type);
+    A = importfile('nmea1.txt',"$GPGSV");
     toc
     tic
     db=0;
@@ -25,6 +26,6 @@
     k=k+1;
     end
     end
-    out=cell2mat(data(1:k-1,:));
-    clear A data db i j ji k lines n o sizeA
+    Ready=cell2mat(data(1:k-1,:));
+    
     toc
