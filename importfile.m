@@ -110,4 +110,4 @@ rawNumericColumns(R) = {NaN}; % Replace non-numeric cells
 %str=string(raw);
 %B=str(:,1)==filter;
 %% Create output variable
-nmea1 = raw%(B,:);
+nmea1 = raw;%(B,:);
