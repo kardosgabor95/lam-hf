@@ -43,16 +43,16 @@ end
 %% Close the text file.
 fclose(fileID);
 
-%%
+%%Filtering out the useless data
 a=string(dataArray{1,1});
 J=a(:,1)==filter;
-jaj=cell(1,size(dataArray,2));
-for i=1:size(jaj,2)
-jaj{1,i}=dataArray{i}(J);
+important=cell(1,size(dataArray,2));
+for i=1:size(important,2)
+important{1,i}=dataArray{i}(J);
 end
 clear dataArray;
-dataArray=jaj;
-clear jaj
+dataArray=important;
+clear important
 clear J
 clear a
 %% Convert the contents of columns containing numeric text to numbers.
@@ -106,8 +106,5 @@ rawStringColumns = string(raw(:, [1,20]));
 R = cellfun(@(x) ~isnumeric(x) && ~islogical(x),rawNumericColumns); % Find non-numeric cells
 rawNumericColumns(R) = {NaN}; % Replace non-numeric cells
 
-%% Filtering out the useless data
-%str=string(raw);
-%B=str(:,1)==filter;
 %% Create output variable
-nmea1 = raw%(B,:);
+nmea1 = raw;
