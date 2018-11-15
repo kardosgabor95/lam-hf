@@ -3,10 +3,10 @@
     A = importfile(file,type);
     toc
     tic
-    db=0;
+    db=1;
     for ji=1:size(A,1)
         if A{ji,3}==1
-            db=db+A{ji,4};
+            db=db+A{ji,4}+1;
         end
     end
     data=cell(db,3);
@@ -14,6 +14,12 @@
     for i=1:size(A,1)
         if A{i,3}==1
         lines=floor(A{i,4}/4)+1;
+        dev=cell(1,3);
+        dev{1,1}=0;
+        dev{1,2}=0;
+        dev{1,3}=0;
+        data(k,:)=dev;
+        k=k+1;
         end
     if A{i,3}~=lines
         o=4;
